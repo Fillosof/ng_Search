@@ -31,7 +31,7 @@
           <div class="search__description">
             We create an online expert search, which allows<br />
             to find an expert by <span>technology, experience <br /> and price.</span> Estimate a project and make a deal.
-            <a>Show all experts</a>
+            <a href="#">Show all experts</a>
           </div>
 
 
@@ -44,7 +44,7 @@
 </div>
 
 <div class="modal-wrapper"
-    *ngIf="showModal">
+    [hidden]="!showModal">
     <div class="modal-message">
       <div class="search-experts">
         <div class="back" (click)="toogleModal()"> <   Back to search </div>
