@@ -85,50 +85,56 @@
           width: 100%;
           height: 100%;
           padding-left: 20px;
-          background-color: rgba(103, 184, 222, 0.2);
-          color: rgba(103, 184, 222, 1);
+
           border: 0;
           border-radius: 5px;
           box-shadow: none;
           outline: 0;
           font-size: 16px;
           font-weight: 400;
+
+          border-radius: 14px;
+          background-color: rgba(103, 184, 222, 0.1);
+          position: absolute;
+          color: rgba(103, 184, 222, 1);
+          cursor: pointer;
+
+
       }
 
           .search-experts .search-experts-left__input input[type=text]::placeholder {
               font-size: 18px;
               font-weight: 300;
-              color: #d0d1d1;
+              color: #FFFFFF;
           }
           .search-experts .search-experts-left__input input[type=text]::-webkit-input-placeholder {
               font-size: 18px;
               font-weight: 300;
-              color: #d0d1d1;
+              color: #FFFFFF;
           }
           .search-experts .search-experts-left__input input[type=text]::-moz-placeholder {
               font-size: 18px;
               font-weight: 300;
-              color: #d0d1d1;
+              color: #FFFFFF;
           }
           .search-experts .search-experts-left__input input[type=text]:-ms-input-placeholder {
               font-size: 18px;
               font-weight: 300;
-              color: #d0d1d1;
+              color: #FFFFFF;
           }
           .search-experts .search-experts-left__input input[type=text]:-moz-placeholder {
               font-size: 18px;
               font-weight: 300;
-              color: #d0d1d1;
+              color: #FFFFFF;
           }
 
           .search-experts .search-experts-left__input input:hover {
-              background-color: rgba(103, 184, 222, 0.4);
+              background-color: rgba(103, 184, 222, 0.3);
           }
 
+
           .search-experts .search-experts-left__input input:focus {
-              background-color: rgba(103, 184, 222, 0.4);
-              border-bottom-left-radius: 0;
-              border-bottom-right-radius: 0;
+              background-color: #376274;
           }
 
 @media only screen and (max-width: 1200px) {
@@ -148,44 +154,72 @@
   background-position: -83px -44px;
 }
 
+.search-experts .search-experts-left__input .search__experts-info {
+  position: absolute;
+  top: -32px;
+  width: 100%;
+  font-size: 14px;
+  color: rgba(103, 184, 222, 0.4);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.search-experts .search-experts-left__input .search__experts-info div {
+  margin: 0 27px 0 16px;
+}
 
 
 .search__results {
   position: absolute;
-  top: 45px;
+  top: 30px;
   left: 0;
   display: block;
   width: 100%;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   /* background-color: rgba(103, 184, 222, 0.4);
   */
   background-color: #376274;
 
   color: rgba(255, 255, 255, 1);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
   font-weight: 300;
-  z-index: 100;
+
+
 
 }
 
   .search__results .search__results-item {
       position: relative;
       margin: 0 10px 0;
-      padding: 7px 45px 7px 10px;
+      padding: 7px 50px 7px 10px;
       font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
   }
+    .search__results .search__results-item .search__results-item_badge-wrapper {
+      width: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+
       .search__results .search__results-item .search__results-item_badge {
-        float: right;
-        display: inline-block;
-        padding: 2px 5px;
-        font-size: 14px;
-        line-height: 14px;
+
+        padding: 4px 11px;
+        height: 10px;
+        font-size: 12px;
+        line-height: 12px;
         text-align: center;
         background-color: rgba(103, 184, 222, 0.2);
+        color: rgba(103, 184, 222, 1);
         opacity: 1;
-        border-radius: 10px;
-        margin: 6px 0;
+        border-radius: 20px;
       }
 
     .search__results .search__results-item:hover {
@@ -194,6 +228,7 @@
     }
     .search__results .search__results-item:hover .search__results-item_badge {
       background-color: rgba(103, 184, 222, 1);
+      color: rgba(0, 0, 0, 1);
     }
 
 .search-experts-left__top-searches {
@@ -254,12 +289,21 @@
 
   #search-experts-noresults {
     position: absolute;
-    top: 10px;
-    right: 23px;
-    font-size: 12px;
-    color: rgb(185, 86, 86);
+    top: 8px;
+    right: 51px;
+    font-size: 14px;
+    color:  rgb(226, 105, 105);
 
   }
+
+  #search-experts-searching {
+    position: absolute;
+    top: 8px;
+    right: 41px;
+    font-size: 14px;
+    color: rgba(103, 185, 222, 0.6);
+  }
+
 
 
 
@@ -307,15 +351,20 @@
 
 .modal-message .back {
   display: inline-block;
-  padding: 5px;
-  font-size: 14px;
+  padding: 6px 14px 6px 18px;
+  font-size: 12px;
   line-height: 14px;
   text-align: center;
   background-color: rgba(103, 184, 222, 0.1);
   color: rgba(255,255, 255, 1);
   opacity: 1;
-  border-radius: 100px;
-  column-rule-style: none;
+  border-radius: 20px;
   cursor: pointer;
 
+
 }
+.modal-message .back:hover {
+  color: rgba(103, 184, 222, 1);
+
+}
+

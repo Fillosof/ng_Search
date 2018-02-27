@@ -7,58 +7,73 @@
           <h2>Search <span>it experts</span> <br /> by technology</h2>
           <div class="search-experts-left__input">
             <div class="search__results"
-            *ngIf="searchExpert">
+            *ngIf="!showAfterSearching&&searchExpert&&(experts | filter:searchExpert).length">
               <div class="search__results-item"
               *ngFor="let expert of experts | filter:searchExpert"
               (click)="modal(expert)">
-              {{expert.tech}}
-                <i class="search__results-item_badge">
-                  {{expert.numbers}}
-                </i>
+                <div>
+                  {{expert.tech}}
+                </div>
+                <div class="search__results-item_badge-wrapper">
+                  <i class="search__results-item_badge">
+                    {{expert.numbers}}
+                  </i>
+                </div>
               </div>
             </div>
             <input id="search-experts"
               type="text" value=""
               placeholder="Angular, .NET, C#, etc"
-              [(ngModel)]='searchExpert'/>
+              [ngStyle]="searchExpert ? {'background-color':'#376274'} : ''"
+              (keyup)='showSearcingDelay($event)'/>
             <span *ngIf="!searchExpert"
                   class="search-arrow">
             </span>
-            <span *ngIf="!(experts | filter:searchExpert).length"
-            id="search-experts-noresults">no results</span>
+            <span *ngIf="!(experts | filter:searchExpert).length&&!showAfterSearching"
+              id="search-experts-noresults">
+              no results
+            </span>
+            <span *ngIf="showAfterSearching"
+              id="search-experts-searching">
+              Searching...
+            </span>
 
+            <div class="search__experts-info"
+              *ngIf="searchExpert">
+              <div>Search by technology:</div>
+              <div>Experts found:</div>
+            </div>
           </div>
           <div class="search__description">
             We create an online expert search, which allows<br />
             to find an expert by <span>technology, experience <br /> and price.</span> Estimate a project and make a deal.
             <a href="#">Show all experts</a>
           </div>
-
-
-
         </div>
+
 
       </div>
     </div>
   </div>
-</div>
-
-<div class="modal-wrapper"
-    [hidden]="!showModal">
-    <div class="modal-message">
-      <div class="search-experts">
-        <div class="back" (click)="toogleModal()"> <   Back to search </div>
-        <div class="modal-finded-experts">
-          <div class="modal-finded-experts__item">
-            <h2>{{findedExperts.tech}}</h2>
-            <div class=""><span>{{findedExperts.numbers}}</span> experts found</div>
+  <div class="modal-wrapper"
+      [hidden]="!showModal">
+      <div class="modal-message">
+        <div class="search-experts">
+          <div class="back" (click)="toogleModal()">
+            &lt;&nbsp;&nbsp;&nbsp;&nbsp;Back to search
           </div>
-          <img src="../../assets/Images/about-result-profiles.png" alt="">
+          <div class="modal-finded-experts">
+            <div class="modal-finded-experts__item">
+              <h2>{{findedExperts.tech}}</h2>
+              <div class=""><span>{{findedExperts.numbers}}</span> experts found</div>
+            </div>
+            <img src="../../assets/Images/about-result-profiles.png" alt="">
+          </div>
+          <h2><span><a href="#">sign in</a></span> or <span><a href="#">sign up</a></span></h2>
+          <div>to view our expert profiles</div>
         </div>
-        <h2><span><a href="#">sign in</a></span> or <span><a href="#">sign up</a></span></h2>
-        <div>to view our expert profiles</div>
       </div>
-
     </div>
-
 </div>
+
+
